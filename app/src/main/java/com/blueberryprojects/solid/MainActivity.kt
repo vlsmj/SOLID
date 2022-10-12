@@ -31,133 +31,132 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            setContent {
-                SOLIDTheme {
-                    var additionAnswer by remember {
-                        mutableStateOf(0)
-                    }
+            SOLIDTheme {
+                var additionAnswer by remember {
+                    mutableStateOf(0)
+                }
 
-                    var subtractionAnswer by remember {
-                        mutableStateOf(0)
-                    }
+                var subtractionAnswer by remember {
+                    mutableStateOf(0)
+                }
 
-                    var multiplicationAnswer by remember {
-                        mutableStateOf(0)
-                    }
+                var multiplicationAnswer by remember {
+                    mutableStateOf(0)
+                }
 
-                    var divisionAnswer by remember {
-                        mutableStateOf(0)
-                    }
+                var divisionAnswer by remember {
+                    mutableStateOf(0)
+                }
 
-                    Surface(modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp), color = MaterialTheme.colors.background) {
-                        Column(horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.fillMaxWidth()) {
-                            Text(text = "Single Responsibility Principle",
-                                fontSize = 32.sp,
-                                fontWeight = FontWeight.Bold)
+                Surface(modifier = Modifier
+                    .fillMaxSize(), color = MaterialTheme.colors.background) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)) {
+                        Text(text = "SOLID",
+                            fontSize = 32.sp,
+                            fontWeight = FontWeight.Bold)
 
-                            Spacer(modifier = Modifier.height(16.dp))
+                        Spacer(modifier = Modifier.height(16.dp))
 
-                            Text(text = "Single-responsibility Principle (SRP) states: A class should have one and only one reason to change, meaning that a class should have only one job.",
-                                fontStyle = FontStyle.Italic)
+                        Text(text = "The SOLID Principles are five principles of Object-Oriented class design. They are a set of rules and best practices to follow while designing a class structure.",
+                            fontStyle = FontStyle.Italic)
 
-                            Spacer(modifier = Modifier.height(16.dp))
+                        Spacer(modifier = Modifier.height(16.dp))
 
-                            Column {
-                                Row(modifier = Modifier.fillMaxWidth()) {
-                                    Box(
-                                        modifier = Modifier
-                                            .border(1.dp, MaterialTheme.colors.primary, RectangleShape)
-                                            .weight(1f)
-                                            .clickable {
-                                                additionAnswer = getAnswer(1, 1, Addition())
+                        Column {
+                            Row(modifier = Modifier.fillMaxWidth()) {
+                                Box(
+                                    modifier = Modifier
+                                        .border(1.dp, MaterialTheme.colors.primary, RectangleShape)
+                                        .weight(1f)
+                                        .clickable {
+                                            additionAnswer = getAnswer(1, 1, Addition())
+                                        }
+                                        .padding(16.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        "1 + 1 = ${
+                                            if (additionAnswer != 0) {
+                                                additionAnswer
+                                            } else {
+                                                ""
                                             }
-                                            .padding(16.dp),
-                                        contentAlignment = Alignment.Center
-                                    ) {
-                                        Text(
-                                            "1 + 1 = ${
-                                                if (additionAnswer != 0) {
-                                                    additionAnswer
-                                                } else {
-                                                    ""
-                                                }
-                                            }"
-                                        )
-                                    }
-
-                                    Spacer(Modifier.weight(0.5f))
-
-                                    Box(
-                                        modifier = Modifier
-                                            .border(1.dp, MaterialTheme.colors.primary, RectangleShape)
-                                            .weight(1f)
-                                            .clickable {
-                                                subtractionAnswer = getAnswer(4, 2, Subtraction())
-                                            }
-                                            .padding(16.dp),
-                                        contentAlignment = Alignment.Center
-                                    ) {
-                                        Text(
-                                            "4 - 2 = ${
-                                                if (subtractionAnswer != 0) {
-                                                    subtractionAnswer
-                                                } else {
-                                                    ""
-                                                }
-                                            }"
-                                        )
-                                    }
+                                        }"
+                                    )
                                 }
 
-                                Spacer(modifier = Modifier.height(16.dp))
+                                Spacer(Modifier.weight(0.5f))
 
-                                Row(modifier = Modifier.fillMaxWidth()) {
-                                    Box(
-                                        modifier = Modifier
-                                            .border(1.dp, MaterialTheme.colors.primary, RectangleShape)
-                                            .weight(1f)
-                                            .clickable {
-                                                multiplicationAnswer = getAnswer(5, 5, Multiplication())
+                                Box(
+                                    modifier = Modifier
+                                        .border(1.dp, MaterialTheme.colors.primary, RectangleShape)
+                                        .weight(1f)
+                                        .clickable {
+                                            subtractionAnswer = getAnswer(4, 2, Subtraction())
+                                        }
+                                        .padding(16.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        "4 - 2 = ${
+                                            if (subtractionAnswer != 0) {
+                                                subtractionAnswer
+                                            } else {
+                                                ""
                                             }
-                                            .padding(16.dp),
-                                        contentAlignment = Alignment.Center
-                                    ) {
-                                        Text(
-                                            "5 x 5 = ${
-                                                if (multiplicationAnswer != 0) {
-                                                    multiplicationAnswer
-                                                } else {
-                                                    ""
-                                                }
-                                            }"
-                                        )
-                                    }
+                                        }"
+                                    )
+                                }
+                            }
 
-                                    Spacer(Modifier.weight(0.5f))
+                            Spacer(modifier = Modifier.height(16.dp))
 
-                                    Box(
-                                        modifier = Modifier
-                                            .border(1.dp, MaterialTheme.colors.primary, RectangleShape)
-                                            .weight(1f)
-                                            .clickable {
-                                                divisionAnswer = getAnswer(12, 4, Division())
+                            Row(modifier = Modifier.fillMaxWidth()) {
+                                Box(
+                                    modifier = Modifier
+                                        .border(1.dp, MaterialTheme.colors.primary, RectangleShape)
+                                        .weight(1f)
+                                        .clickable {
+                                            multiplicationAnswer = getAnswer(5, 5, Multiplication())
+                                        }
+                                        .padding(16.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        "5 x 5 = ${
+                                            if (multiplicationAnswer != 0) {
+                                                multiplicationAnswer
+                                            } else {
+                                                ""
                                             }
-                                            .padding(16.dp),
-                                        contentAlignment = Alignment.Center
-                                    ) {
-                                        Text(
-                                            "12 / 4 = ${
-                                                if (divisionAnswer != 0) {
-                                                    divisionAnswer
-                                                } else {
-                                                    ""
-                                                }
-                                            }"
-                                        )
-                                    }
+                                        }"
+                                    )
+                                }
+
+                                Spacer(Modifier.weight(0.5f))
+
+                                Box(
+                                    modifier = Modifier
+                                        .border(1.dp, MaterialTheme.colors.primary, RectangleShape)
+                                        .weight(1f)
+                                        .clickable {
+                                            divisionAnswer = getAnswer(12, 4, Division())
+                                        }
+                                        .padding(16.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        "12 / 4 = ${
+                                            if (divisionAnswer != 0) {
+                                                divisionAnswer
+                                            } else {
+                                                ""
+                                            }
+                                        }"
+                                    )
                                 }
                             }
                         }
